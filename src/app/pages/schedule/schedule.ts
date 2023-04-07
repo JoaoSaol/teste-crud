@@ -74,7 +74,7 @@ export class SchedulePage implements OnInit {
   async addFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any) {
     if (this.user.hasFavorite(sessionData.name)) {
       // Prompt to remove favorite
-      this.removeFavorite(slidingItem, sessionData, 'Favorite already added');
+      this.removeFavorite(slidingItem, sessionData, 'removido dos favoritos');
     } else {
       // Add as a favorite
       this.user.addFavorite(sessionData.name);
@@ -84,10 +84,10 @@ export class SchedulePage implements OnInit {
 
       // Create a toast
       const toast = await this.toastCtrl.create({
-        header: `${sessionData.name} was successfully added as a favorite.`,
+        header: `${sessionData.name} adicionado aos favoritos com sucesso`,
         duration: 3000,
         buttons: [{
-          text: 'Close',
+          text: 'fechar',
           role: 'cancel'
         }]
       });
@@ -101,10 +101,10 @@ export class SchedulePage implements OnInit {
   async removeFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any, title: string) {
     const alert = await this.alertCtrl.create({
       header: title,
-      message: 'Would you like to remove this session from your favorites?',
+      message: 'Gostaria de remover este item dos seus favoritos?',
       buttons: [
         {
-          text: 'Cancel',
+          text: 'Cancelar',
           handler: () => {
             // they clicked the cancel button, do not remove the session
             // close the sliding item and hide the option buttons
