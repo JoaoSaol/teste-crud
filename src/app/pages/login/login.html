@@ -1,10 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-
-    <ion-title>Login</ion-title>
+    <div id="toolbar-login">
+      <!-- <img src="../../../assets/img/hackathon/circulos.png" alt=""> -->
+      <ion-title>
+        <b>
+          Entrar
+        </b>
+      </ion-title>
+      <!-- <ion-icon name="person-outline" id="icon"></ion-icon> -->
+    </div>
   </ion-toolbar>
 </ion-header>
 
@@ -15,28 +19,45 @@
 
   <form #loginForm="ngForm" novalidate>
     <ion-list>
-      <ion-item>
+      <!-- <ion-item>
         <ion-label position="stacked" color="primary">Username</ion-label>
-        <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
-          required>
+        <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false"
+          autocapitalize="off" required>
         </ion-input>
+      </ion-item> -->
+      <ion-item fill="outline" class="input-credentials">
+        <ion-label position="floating">Entre com Email</ion-label>
+        <ion-input placeholder="Enter with Email" [(ngModel)]="login.username" name="username" type="email"
+          #username="ngModel" spellcheck="false" autocapitalize="off" required></ion-input>
       </ion-item>
 
-      <ion-text color="danger">
-        <p [hidden]="username.valid || submitted === false" class="ion-padding-start">
-          Username is required
+      <ion-item fill="outline" class="input-credentials">
+        <ion-label position="floating">Entre com Senha</ion-label>
+        <ion-input placeholder="Enter with Password" [(ngModel)]="login.password" name="password" type="password"
+          #password="ngModel" required></ion-input>
+      </ion-item>
+
+      <ion-text>
+        <p id="forgot-password">
+          Esqueceu a senha?
         </p>
       </ion-text>
 
-      <ion-item>
+      <ion-text color="danger">
+        <p [hidden]="username.valid || submitted === false" class="ion-padding-start">
+          Email é Obrigatório
+        </p>
+      </ion-text>
+
+      <!-- <ion-item>
         <ion-label position="stacked" color="primary">Password</ion-label>
         <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
         </ion-input>
-      </ion-item>
+      </ion-item> -->
 
       <ion-text color="danger">
         <p [hidden]="password.valid || submitted === false" class="ion-padding-start">
-          Password is required
+          Senha é Obrigatório
         </p>
       </ion-text>
     </ion-list>
@@ -45,10 +66,36 @@
       <ion-col>
         <ion-button (click)="onLogin(loginForm)" type="submit" expand="block">Login</ion-button>
       </ion-col>
-      <ion-col>
+      <!-- <ion-col>
         <ion-button (click)="onSignup()" color="light" expand="block">Signup</ion-button>
-      </ion-col>
+      </ion-col> -->
     </ion-row>
   </form>
+
+  <div id="divisao">
+    <ion-item-divider id="linha-esquerda">
+    </ion-item-divider>
+    <p>Logar</p>
+    <ion-item-divider id="linha-direita">
+    </ion-item-divider>
+  </div>
+
+  <div id="redes">
+    <ion-card>
+      <img src="../../../assets/img/hackathon/icons/google logo.png" alt="" srcset="">
+    </ion-card>
+    <ion-card>
+      <img src="../../../assets/img/hackathon/icons/Group.png" alt="" srcset="">
+    </ion-card>
+    <ion-card>
+      <img src="../../../assets/img/hackathon/icons/Vector.png" alt="" srcset="">
+    </ion-card>
+  </div>
+
+  <div id="registro">
+    <ion-text>
+      Não tem conta? <b> Cadastre agora </b>
+    </ion-text>
+  </div>
 
 </ion-content>

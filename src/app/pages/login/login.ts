@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { UserData } from '../../providers/user-data';
@@ -13,14 +13,23 @@ import { UserOptions } from '../../interfaces/user-options';
   templateUrl: 'login.html',
   styleUrls: ['./login.scss'],
 })
-export class LoginPage {
+export class LoginPage implements OnInit {
   login: UserOptions = { username: '', password: '' };
   submitted = false;
 
+  formLogin: FormGroup;
+
   constructor(
     public userData: UserData,
-    public router: Router
+    public router: Router,
+    private formBuilder: FormBuilder
   ) { }
+  ngOnInit(): void {
+    this.formLogin = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    })
+  }
 
   onLogin(form: NgForm) {
     this.submitted = true;
