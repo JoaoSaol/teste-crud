@@ -1,24 +1,134 @@
-import { Component, ElementRef, Inject, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, Inject, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { ConferenceData } from '../../providers/conference-data';
-import { Platform } from '@ionic/angular';
-import { DOCUMENT} from '@angular/common';
+import { IonContent, Platform } from '@ionic/angular';
+import { DOCUMENT } from '@angular/common';
 
 import { darkStyle } from './map-dark-style';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'page-map',
   templateUrl: 'map.html',
   styleUrls: ['./map.scss']
 })
-export class MapPage implements AfterViewInit {
+export class MapPage implements AfterViewInit, OnInit {
   @ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
+  @ViewChild('IonContent', { static: true }) content: IonContent
+  paramData: any;
+  msgList: any;
+  userName: any;
+  user_input: string = "";
+  User: string = "Me";
+  toUser: string = "HealthBot";
+  start_typing: any;
+  loader: boolean;
+  
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,
     public confData: ConferenceData,
-    public platform: Platform) {}
+    public platform: Platform,
+    public activRoute: ActivatedRoute
+  ) {
+    this.activRoute.params.subscribe((params) => {
+      // console.log(params)
+      this.paramData = params
+      this.userName = params.name
+    });
+  }
+  ngOnInit(): void {
+    // throw new Error('Method not implemented.');
+  }
+
+  sendMsg() {
+    if (this.user_input !== '') {
+      this.msgList.push({
+        userId: this.toUser,
+        userName: this.toUser,
+        userAvatar: this.paramData.image ? this.paramData.image : "../../assets/chat/chat4.jpg",
+        time: "12:01",
+        message: this.user_input,
+        id: this.msgList.length + 1
+      })
+      this.user_input = "";
+      this.scrollDown()
+      setTimeout(() => {
+        this.senderSends()
+      }, 500);
+
+    }
+  }
+  senderSends() {
+    this.loader = true;
+    setTimeout(() => {
+      this.msgList.push({
+        userId: this.User,
+        userName: this.User,
+        userAvatar: "../../assets/chat/chat5.jpg",
+        time: "12:01",
+        message: "Pagas, this themes support but ionic 3 ionic 4, etc.."
+      });
+      this.loader = false;
+      this.scrollDown()
+    }, 2000)
+    this.scrollDown()
+  }
+  scrollDown() {
+    setTimeout(() => {
+      this.content.scrollToBottom(50)
+    }, 50);
+  }
+
+  userTyping(event: any) {
+    // console.log(event);
+    this.start_typing = event.target.value;
+    this.scrollDown()
+  }
 
   async ngAfterViewInit() {
+
+    this.msgList = [
+      {
+        userId: "HealthBot",
+        userName: "HealthBot",
+        userAvatar: "../../../assets/img/speakers/bear.jpg",
+        time: "12:00",
+        message: "Olá Tudo bem? eu vi que você é líder da comunidade de Jogos, como funciona a sua comunidade",
+        id: 0
+      },
+      {
+        userId: "Me",
+        userName: "Me",
+        userAvatar: ".../../../assets/img/speakers/bear.jpg",
+        time: "12:03",
+        message: "Olá Tudo bem sim, olha a comunidade funciona assim a gente se reúne em alguns eventos que você pode encontrar na aba de a eventos e filtrar por Jogos",
+        id: 1,
+      },
+      {
+        userId: "HealthBot",
+        userName: "HealthBot",
+        userAvatar: "../../assets/chat/chat4.jpg",
+        time: "12:05",
+        message: "Nossa eu não sabia, eu também sou líder da comunidade de animais",
+        id: 3
+      },
+      {
+        userId: "Me",
+        userName: "Me",
+        userAvatar: "../../assets/chat/chat5.jpg",
+        time: "12:06",
+        message: "wow ! muito bom, seja bem vindo a nossa comunidade",
+        id: 4
+      },
+      {
+        userId: "HealthBot",
+        userName: "HealthBot",
+        userAvatar: "../../assets/chat/chat4.jpg",
+        time: "12:07",
+        message: "Nossa muito obrigado esse diálogo entre líderes é muito bom!",
+        id: 5
+      }
+    ];
     const appEl = this.doc.querySelector('ion-app');
     let isDark = false;
     let style = [];
@@ -68,9 +178,9 @@ export class MapPage implements AfterViewInit {
           const el = mutation.target as HTMLElement;
           isDark = el.classList.contains('dark-theme');
           if (map && isDark) {
-            map.setOptions({styles: darkStyle});
+            map.setOptions({ styles: darkStyle });
           } else if (map) {
-            map.setOptions({styles: []});
+            map.setOptions({ styles: [] });
           }
         }
       });
@@ -80,6 +190,7 @@ export class MapPage implements AfterViewInit {
     });
   }
 }
+
 
 function getGoogleMaps(apiKey: string): Promise<any> {
   const win = window as any;

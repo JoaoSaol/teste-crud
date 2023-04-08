@@ -20,25 +20,25 @@ import { UserData } from './providers/user-data';
 export class AppComponent implements OnInit {
   appPages = [
     {
-      title: 'Início',
+      title: 'Agenda',
       url: '/app/tabs/schedule',
-      icon: 'home'
+      icon: 'calendar'
     },
     {
-      title: 'Vídeos',
+      title: 'Atividade',
       url: '/app/tabs/speakers',
-      icon: 'camera'
+      icon: 'newspaper'
     },
     {
-      title: 'Map',
+      title: 'Bate Papo',
       url: '/app/tabs/map',
-      icon: 'map'
+      icon: 'chatbox-ellipses'
     },
-    {
-      title: 'About',
-      url: '/app/tabs/about',
-      icon: 'information-circle'
-    }
+    // {
+    //   title: 'About',
+    //   url: '/app/tabs/about',
+    //   icon: 'information-circle'
+    // }
   ];
   loggedIn = false;
   dark = false;

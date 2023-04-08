@@ -9,11 +9,17 @@ import { ConferenceData } from '../../providers/conference-data';
 export class SpeakerListPage {
   speakers: any[] = [];
 
+  comunidades: any[] = [];
+
   constructor(public confData: ConferenceData) {}
 
   ionViewDidEnter() {
     this.confData.getSpeakers().subscribe((speakers: any[]) => {
       this.speakers = speakers;
+    });
+
+    this.confData.getSpeakers().subscribe((comunidades: any[]) => {
+      this.comunidades = comunidades;
     });
   }
 }

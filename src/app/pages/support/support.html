@@ -9,26 +9,26 @@
 </ion-header>
 
 <ion-content>
-  <div class="support-logo">
-    <img src="assets/img/appicon.svg" alt="Ionic Logo">
+  <div class="login-logo">
+    <img src="assets/img/hackathon/logo.png" alt="Ionic logo">
   </div>
 
   <form #submitForm="ngForm" novalidate (ngSubmit)="submit(submitForm)">
     <ion-list lines="none">
       <ion-item>
-        <ion-label position="stacked" color="primary">Enter your support message below</ion-label>
+        <ion-label position="stacked" color="primary">Mande sua mensagem</ion-label>
         <ion-textarea [(ngModel)]="supportMessage" name="supportQuestion" #supportQuestion="ngModel" rows="6" required></ion-textarea>
       </ion-item>
     </ion-list>
 
     <ion-text color="danger">
       <p [hidden]="supportQuestion.valid || submitted === false" class="ion-padding-start">
-        Support message is required
+        Mensagem é obrigatória
       </p>
     </ion-text>
 
     <div class="ion-padding">
-      <ion-button expand="block" type="submit">Submit</ion-button>
+      <ion-button expand="block" type="submit">Enviar</ion-button>
     </div>
   </form>
 </ion-content>

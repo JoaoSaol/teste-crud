@@ -34,7 +34,7 @@ export class SupportPage {
       this.submitted = false;
 
       const toast = await this.toastCtrl.create({
-        message: 'Your support request has been sent.',
+        message: 'Sua mensagem foi enviada com sucesso e em breve entraremos em contato pelo email cadastrado',
         duration: 3000
       });
       await toast.present();
@@ -43,23 +43,23 @@ export class SupportPage {
 
   // If the user enters text in the support question and then navigates
   // without submitting first, ask if they meant to leave the page
-  // async ionViewCanLeave(): Promise<boolean> {
-  //   // If the support message is empty we should just navigate
-  //   if (!this.supportMessage || this.supportMessage.trim().length === 0) {
-  //     return true;
-  //   }
+  async ionViewCanLeave(): Promise<boolean> {
+    // If the support message is empty we should just navigate
+    if (!this.supportMessage || this.supportMessage.trim().length === 0) {
+      return true;
+    }
 
-  //   return new Promise((resolve: any, reject: any) => {
-  //     const alert = await this.alertCtrl.create({
-  //       title: 'Leave this page?',
-  //       message: 'Are you sure you want to leave this page? Your support message will not be submitted.',
-  //       buttons: [
-  //         { text: 'Stay', handler: reject },
-  //         { text: 'Leave', role: 'cancel', handler: resolve }
-  //       ]
-  //     });
+    return new Promise(async (resolve: any, reject: any) => {
+      const alert = await this.alertCtrl.create({
+        // title: 'Leave this page?',
+        message: 'Você tem certeza que quer sair sem enviar a mensagem?',
+        buttons: [
+          { text: 'Ficar', handler: reject },
+          { text: 'Sair', role: 'cancel', handler: resolve }
+        ]
+      });
 
-  //     await alert.present();
-  //   });
-  // }
+      await alert.present();
+    });
+  }
 }

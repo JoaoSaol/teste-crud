@@ -7,6 +7,10 @@
           Entrar
         </b>
       </ion-title>
+
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
       <!-- <ion-icon name="person-outline" id="icon"></ion-icon> -->
     </div>
   </ion-toolbar>
@@ -94,7 +98,7 @@
 
   <div id="registro">
     <ion-text>
-      Não tem conta? <b> Cadastre agora </b>
+      Não tem conta? <b (click)="cadastrar()"> Cadastre agora </b>
     </ion-text>
   </div>
 

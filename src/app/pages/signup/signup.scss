@@ -1,13 +1,92 @@
-.signup-logo {
-  padding: 20px 0;
-  min-height: 200px;
+.login-logo {
+  // padding-top: 80px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  min-height: 10px;
   text-align: center;
 }
 
-.signup-logo img {
-  max-width: 150px;
+.login-logo img {
+  max-width: 280px;
 }
 
 .list {
   margin-bottom: 0;
+}
+
+.input-credentials {
+  padding: 10px 25px;
+  min-width: 200px;
+  height: 75px;
+}
+
+ion-header {
+  &.header-md:after {
+    background: none;
+  }
+}
+
+#forgot-password {
+  display: flex;
+  justify-content: end;
+  /* --margin-left: 51px; */
+  margin-right: 25px;
+}
+
+#toolbar-login {
+  display: flex;
+  flex-direction: row;
+  background-image: url('../../../assets/img/hackathon/circulos.png');
+  height: 12.2rem;
+}
+
+#divisao {
+  display: flex;
+  align-content: flex-end;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: baseline;
+
+  #linha-esquerda {
+    margin-left: 15px;
+  }
+
+  #linha-direita {
+    margin-right: 15px;
+  }
+}
+
+#redes {
+  display: flex;
+  justify-content: center;
+  ion-card {
+    width: 65px;
+    display: flex;
+    justify-content: center;
+  }
+  img {
+    max-width: 60%;
+    /* border: 33px; */
+    margin-top: 5px;
+    margin-right: 30px;
+    margin-bottom: 5px;
+    margin-left: 30px;
+  }
+}
+
+ion-button {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#icon {
+  margin-right: 12rem;
+}
+
+#registro {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
 }

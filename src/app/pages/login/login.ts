@@ -43,4 +43,8 @@ export class LoginPage implements OnInit {
   onSignup() {
     this.router.navigateByUrl('/signup');
   }
+
+  cadastrar() {
+    this.router.navigateByUrl('/signup');
+  }
 }

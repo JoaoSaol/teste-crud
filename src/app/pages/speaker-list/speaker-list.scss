@@ -1,6 +1,7 @@
 .speaker-card {
   display: flex;
   flex-direction: column;
+  // background-image: url('../../../assets/img/hackathon/')
 }
 
 /* Due to the fact the cards are inside of columns the margins don't overlap
@@ -10,8 +11,22 @@ ion-col:not(:last-of-type) .speaker-card {
   margin-bottom: 0;
 }
 
+ion-header {
+  &.header-md:after {
+    background: none;
+  }
+}
+
+#toolbar-login {
+  display: flex;
+  flex-direction: row;
+  background-image: url('../../../assets/img/hackathon/circulos.png');
+  height: 12.2rem;
+}
+
+
 .speaker-card .speaker-item {
-  --min-height: 85px;
+  --min-height: 150px;
 }
 
 .speaker-card .speaker-item h2 {
@@ -43,4 +58,39 @@ ion-col:not(:last-of-type) .speaker-card {
   border-top: 1px solid var(--ion-color-step-150, #d7d8da);
 
   padding: 0;
+}
+
+ion-card {
+  width: 85px;
+}
+
+ion-row {
+  overflow: auto;
+  white-space: nowrap;
+
+  div.scrollmenu {
+    // background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+  }
+
+  div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    // padding: 14px;
+    text-decoration: none;
+  }
+
+  div.scrollmenu a:hover {
+    background-color: #777;
+  }
+
+  ion-col {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
 }
