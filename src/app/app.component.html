@@ -19,7 +19,7 @@
         </ion-list>
 
         <ion-list *ngIf="loggedIn" lines="none">
-          <ion-list-header>
+          <!-- <ion-list-header>
             Conta
           </ion-list-header>
 
@@ -48,12 +48,12 @@
                 Sair
               </ion-label>
             </ion-item>
-          </ion-menu-toggle>
+          </ion-menu-toggle> -->
 
         </ion-list>
 
         <ion-list *ngIf="!loggedIn" lines="none">
-          <ion-list-header>
+          <!-- <ion-list-header>
             Conta
           </ion-list-header>
 
@@ -82,17 +82,18 @@
                 Cadastrar
               </ion-label>
             </ion-item>
-          </ion-menu-toggle>
+          </ion-menu-toggle> -->
 
-          <ion-item>
-            <ion-icon slot="start" name="moon-outline"></ion-icon>
-            <ion-label>
-              Modo Escuro 
-            </ion-label>
-            <ion-toggle [(ngModel)]="dark"></ion-toggle>
-          </ion-item>
+
         </ion-list>
 
+        <ion-item>
+          <ion-icon slot="start" name="moon-outline"></ion-icon>
+          <ion-label>
+            Modo Escuro 
+          </ion-label>
+          <ion-toggle [(ngModel)]="dark"></ion-toggle>
+        </ion-item>
       </ion-content>
     </ion-menu>
 

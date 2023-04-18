@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+        <ion-title>
+            Detalhe da Pessoa
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div *ngIf="note">
+        <ion-item>
+            <ion-label position="stacked">
+                Nome
+            </ion-label>
+            <ion-input [(ngModel)]="note.nome"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="stacked">
+                Idade
+            </ion-label>
+            <ion-input [(ngModel)]="note.idade"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">
+                Data Nascimento
+            </ion-label>
+            <ion-input [(ngModel)]="note.dataNascimento"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="stacked">
+                Email
+            </ion-label>
+            <ion-input [(ngModel)]="note.email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="stacked">
+                Ocupacao
+            </ion-label>
+            <ion-input [(ngModel)]="note.ocupacao"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="stacked">
+                Telefone
+            </ion-label>
+            <ion-input [(ngModel)]="note.telefone"></ion-input>
+        </ion-item>
+    </div>
+
+    <ion-button expand="block" color="success" (click)="updateNote()">
+        <ion-icon name="save" slot="start"></ion-icon>
+        Atualizar
+    </ion-button>
+    <ion-button expand="block" color="danger" (click)="deleteNote()">
+        <ion-icon name="trash" slot="start"></ion-icon>
+        Deletar
+    </ion-button>
+</ion-content>

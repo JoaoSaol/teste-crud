@@ -1,128 +1,36 @@
 <ion-header translucent="true">
 
     <ion-toolbar style="background-color: #F8F9FB;" color="#F8F9FB">
-        <ion-buttons *ngIf="!showSearchbar" slot="start">
+        <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
 
-        <ion-segment *ngIf="ios" [(ngModel)]="segment" (ionChange)="updateSchedule()">
-            <ion-segment-button value="all">
-                Todos
-            </ion-segment-button>
-            <ion-segment-button value="favorites">
-                Favoritos
-            </ion-segment-button>
-        </ion-segment>
-
+        <ion-title>
+            Cadastro Pessoa
+        </ion-title>
         <!-- Img android -->
         <!-- <img src="./../../../assets/img/hackathon/logo.png" alt=""> -->
-
-        <ion-searchbar *ngIf="showSearchbar" showCancelButton="always" [(ngModel)]="queryText"
-            (ionChange)="updateSchedule()" (ionCancel)="showSearchbar = false" placeholder="Buscar"></ion-searchbar>
-        <ion-buttons slot="end">
-            <ion-button *ngIf="!ios && !showSearchbar" (click)="showSearchbar = true">
-                <ion-icon slot="icon-only" name="search"></ion-icon>
-            </ion-button>
-            <ion-button *ngIf="!showSearchbar" (click)="presentFilter()">
-                <span *ngIf="ios"><ion-icon slot="icon-only" name="options"></ion-icon></span>
-                <span *ngIf="!ios">
-                    <ion-icon slot="icon-only" name="options"></ion-icon>
-                </span>
-            </ion-button>
-        </ion-buttons>
-    </ion-toolbar>
-    <ion-toolbar *ngIf="!ios">
-
-        <ion-segment [(ngModel)]="segment" (ionChange)="updateSchedule()">
-            <ion-segment-button value="all">
-                Todos
-            </ion-segment-button>
-            <ion-segment-button value="favorites">
-                Favoritos
-            </ion-segment-button>
-
-        </ion-segment>
 
     </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen="true">
-    <ion-header collapse="condense">
-        <ion-toolbar>
-            <ion-searchbar [(ngModel)]="queryText" (ionChange)="updateSchedule()" placeholder="Buscar"></ion-searchbar>
-        </ion-toolbar>
-    </ion-header>
-
-    <ion-list #scheduleList [hidden]="shownSessions === 0">
-        <ion-item-group *ngFor="let group of groups" [hidden]="group.hide">
-            <ion-item-divider sticky>
-                <ion-label>
-                    {{group.time}}
-                </ion-label>
-                <ion-icon name="add" slot="end"></ion-icon>
-            </ion-item-divider>
-
-            <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem
-                [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
-                <ion-item routerLink="/app/tabs/schedule/session/{{session.id}}">
-                    <ion-label>
-                        <h3>{{session.name}}</h3>
-                        <br>
-                        <!-- <p>
-                            {{session.timeStart}} &mdash; {{session.timeEnd}}: {{session.location}}
-                            https://ionicframework.com/docs/api/alert
-                        </p> -->
-                    </ion-label>
-                    <ion-icon name="ellipsis-vertical-outline" slot="end"></ion-icon>
-                    <!-- <ion-button id="click-trigger" >
-                    </ion-button>
-                    <ion-popover trigger="click-trigger" triggerAction="click">
-                        <ng-template>
-                            <ion-content class="ion-padding">
-                                <ion-item>
-                                    Excluir
-                                </ion-item>
-                                <ion-item>
-                                    Renomear
-                                </ion-item>
-                                <ion-item>
-                                    Duplicar
-                                </ion-item>
-                            </ion-content>
-                        </ng-template>
-                    </ion-popover> -->
-                </ion-item>
-                <ion-item-options>
-                    <ion-item-option color="favorite" (click)="addFavorite(slidingItem, session)"
-                        *ngIf="segment === 'all'">
-                        Favoritar
-                    </ion-item-option>
-                </ion-item-options>
-            </ion-item-sliding>
-        </ion-item-group>
+    <ion-list>
+        <ion-item *ngFor="let note of notes" (click)="openNote(note)">
+            <ion-label>
+                {{ note.nome }}
+            </ion-label>
+        </ion-item>
     </ion-list>
 
-    <ion-list-header [hidden]="shownSessions > 0">
-        Não foram encontrados eventos com filtros mencionados
-    </ion-list-header>
+    <ion-list *ngIf="notes.length == 0">
+        <ion-label style="display: flex; justify-content: center;"> Sem Pessoas Adicionadas</ion-label>
+    </ion-list>
 
-    <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
-        <ion-fab-button>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="addNote()">
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
-        <ion-fab-list side="top">
-            <ion-fab-button color="vimeo" (click)="openSocial('Vimeo', fab)">
-                <ion-icon name="logo-vimeo"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button color="instagram" (click)="openSocial('Instagram', fab)">
-                <ion-icon name="logo-instagram"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button color="twitter" (click)="openSocial('Twitter', fab)">
-                <ion-icon name="logo-twitter"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button color="facebook" (click)="openSocial('Facebook', fab)">
-                <ion-icon name="logo-facebook"></ion-icon>
-            </ion-fab-button>
-        </ion-fab-list>
+
     </ion-fab>
 </ion-content>
