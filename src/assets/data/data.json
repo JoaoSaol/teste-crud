@@ -4,10 +4,10 @@
             "date": "2047-05-17",
             "groups": [
                 {
-                    "time": "Campus Party",
+                    "time": "Cidade Opus",
                     "sessions": [
                         {
-                            "name": "CPBSB5",
+                            "name": "Apartamento 1",
                             "timeStart": "05/04/23",
                             "timeEnd": "09/04/23",
                             "location": "Brasilia",
@@ -15,64 +15,156 @@
                                 "Campus Party"
                             ],
                             "id": "1"
-                        }
-                    ]
-                },
-                {
-                    "time": "Campus Party",
-                    "sessions": [
+                        },
                         {
-                            "name": "Início das submissões",
+                            "name": "Apartamento 2",
+                            "timeStart": "05/04/23",
+                            "timeEnd": "09/04/23",
                             "location": "Brasilia",
-                            "description": "Inicio de solicitações de comunidades",
-                            "speakerNames": [
-                                "Eva Eagle",
-                                "Lionel Lion"
-                            ],
-                            "timeStart": "10:00 am",
-                            "timeEnd": "-",
                             "tracks": [
-                                "Campus Party",
-                                "4 Community"
+                                "Campus Party"
+                            ],
+                            "id": "2"
+                        },
+                        {
+                            "name": "Apartamento 3",
+                            "timeStart": "05/04/23",
+                            "timeEnd": "09/04/23",
+                            "location": "Brasilia",
+                            "tracks": [
+                                "Campus Party"
+                            ],
+                            "id": "3"
+                        },
+                        {
+                            "name": "Apartamento 4",
+                            "timeStart": "05/04/23",
+                            "timeEnd": "09/04/23",
+                            "location": "Brasilia",
+                            "tracks": [
+                                "Campus Party"
+                            ],
+                            "id": "4"
+                        },
+                        {
+                            "name": "Apartamento 5",
+                            "timeStart": "05/04/23",
+                            "timeEnd": "09/04/23",
+                            "location": "Brasilia",
+                            "tracks": [
+                                "Campus Party"
                             ],
                             "id": "5"
                         }
                     ]
                 },
                 {
-                    "time": "Campus Party",
+                    "time": "Opus House",
                     "sessions": [
                         {
-                            "name": "Abertura hackathons",
+                            "name": "Casa 1",
+                            "timeStart": "05/04/23",
+                            "timeEnd": "09/04/23",
                             "location": "Brasilia",
-                            "description": "Apresentação das propostas de projetos",
-                            "speakerNames": [
-                                "Karl Kitten",
-                                "Lionel Lion"
-                            ],
-                            "timeStart": "07:00 pm",
-                            "timeEnd": "9:00 pm",
                             "tracks": [
-                                "Campus Party",
-                                "4 Events"
+                                "Campus Party"
+                            ],
+                            "id": "6"
+                        },
+                        {
+                            "name": "Casa 2",
+                            "timeStart": "05/04/23",
+                            "timeEnd": "09/04/23",
+                            "location": "Brasilia",
+                            "tracks": [
+                                "Campus Party"
+                            ],
+                            "id": "7"
+                        },
+                        {
+                            "name": "Casa 3",
+                            "timeStart": "05/04/23",
+                            "timeEnd": "09/04/23",
+                            "location": "Brasilia",
+                            "tracks": [
+                                "Campus Party"
+                            ],
+                            "id": "8"
+                        },
+                        {
+                            "name": "Casa 4",
+                            "timeStart": "05/04/23",
+                            "timeEnd": "09/04/23",
+                            "location": "Brasilia",
+                            "tracks": [
+                                "Campus Party"
                             ],
                             "id": "9"
+                        },
+                        {
+                            "name": "Casa 5",
+                            "timeStart": "05/04/23",
+                            "timeEnd": "09/04/23",
+                            "location": "Brasilia",
+                            "tracks": [
+                                "Campus Party"
+                            ],
+                            "id": "10"
                         }
                     ]
                 },
                 {
-                    "time": "Conta azul",
+                    "time": "Opus Jardins",
                     "sessions": [
                         {
-                            "name": "Gestão financeira",
-                            "location": "Joinville, SC, Brasil",
-                            "description": "Evento secundario da comunidade conta azul",
-                            "timeStart": "12:00 pm",
-                            "timeEnd": "17:00 pm",
+                            "name": "Sobrados 1",
+                            "timeStart": "05/04/23",
+                            "timeEnd": "09/04/23",
+                            "location": "Brasilia",
                             "tracks": [
-                                "Outros"
+                                "Campus Party"
+                            ],
+                            "id": "11"
+                        },
+                        {
+                            "name": "Sobrados 2",
+                            "timeStart": "05/04/23",
+                            "timeEnd": "09/04/23",
+                            "location": "Brasilia",
+                            "tracks": [
+                                "Campus Party"
                             ],
                             "id": "12"
+                        },
+                        {
+                            "name": "Sobrados 3",
+                            "timeStart": "05/04/23",
+                            "timeEnd": "09/04/23",
+                            "location": "Brasilia",
+                            "tracks": [
+                                "Campus Party"
+                            ],
+                            "id": "13"
+                        },
+                        {
+                            "name": "Sobrados 4",
+                            "timeStart": "05/04/23",
+                            "timeEnd": "09/04/23",
+                            "location": "Brasilia",
+                            "tracks": [
+                                "Campus Party"
+                            ],
+                            "id": "14"
+                        },
+                        {
+                            "name": "Sobrados 5",
+                            "timeStart": "05/04/23",
+                            "timeEnd": "09/04/23",
+                            "location": "Brasilia",
+                            "tracks": [
+                                "Campus Party"
+                            ],
+                            "id": "15"
                         }
                     ]
                 }

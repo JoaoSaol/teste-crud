@@ -15,9 +15,10 @@
         </ion-segment>
 
         <!-- Img android -->
-        <img src="./../../../assets/img/hackathon/logo.png" alt="">
+        <!-- <img src="./../../../assets/img/hackathon/logo.png" alt=""> -->
 
-        <ion-searchbar *ngIf="showSearchbar" showCancelButton="always" [(ngModel)]="queryText" (ionChange)="updateSchedule()" (ionCancel)="showSearchbar = false" placeholder="Buscar"></ion-searchbar>
+        <ion-searchbar *ngIf="showSearchbar" showCancelButton="always" [(ngModel)]="queryText"
+            (ionChange)="updateSchedule()" (ionCancel)="showSearchbar = false" placeholder="Buscar"></ion-searchbar>
         <ion-buttons slot="end">
             <ion-button *ngIf="!ios && !showSearchbar" (click)="showSearchbar = true">
                 <ion-icon slot="icon-only" name="search"></ion-icon>
@@ -25,8 +26,8 @@
             <ion-button *ngIf="!showSearchbar" (click)="presentFilter()">
                 <span *ngIf="ios"><ion-icon slot="icon-only" name="options"></ion-icon></span>
                 <span *ngIf="!ios">
-          <ion-icon slot="icon-only" name="options"></ion-icon>
-        </span>
+                    <ion-icon slot="icon-only" name="options"></ion-icon>
+                </span>
             </ion-button>
         </ion-buttons>
     </ion-toolbar>
@@ -58,19 +59,42 @@
                 <ion-label>
                     {{group.time}}
                 </ion-label>
+                <ion-icon name="add" slot="end"></ion-icon>
             </ion-item-divider>
 
-            <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
+            <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem
+                [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
                 <ion-item routerLink="/app/tabs/schedule/session/{{session.id}}">
                     <ion-label>
                         <h3>{{session.name}}</h3>
-                        <p>
+                        <br>
+                        <!-- <p>
                             {{session.timeStart}} &mdash; {{session.timeEnd}}: {{session.location}}
-                        </p>
+                            https://ionicframework.com/docs/api/alert
+                        </p> -->
                     </ion-label>
+                    <ion-icon name="ellipsis-vertical-outline" slot="end"></ion-icon>
+                    <!-- <ion-button id="click-trigger" >
+                    </ion-button>
+                    <ion-popover trigger="click-trigger" triggerAction="click">
+                        <ng-template>
+                            <ion-content class="ion-padding">
+                                <ion-item>
+                                    Excluir
+                                </ion-item>
+                                <ion-item>
+                                    Renomear
+                                </ion-item>
+                                <ion-item>
+                                    Duplicar
+                                </ion-item>
+                            </ion-content>
+                        </ng-template>
+                    </ion-popover> -->
                 </ion-item>
                 <ion-item-options>
-                    <ion-item-option color="favorite" (click)="addFavorite(slidingItem, session)" *ngIf="segment === 'all'">
+                    <ion-item-option color="favorite" (click)="addFavorite(slidingItem, session)"
+                        *ngIf="segment === 'all'">
                         Favoritar
                     </ion-item-option>
                 </ion-item-options>
@@ -84,7 +108,7 @@
 
     <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
         <ion-fab-button>
-            <ion-icon name="share-social"></ion-icon>
+            <ion-icon name="add"></ion-icon>
         </ion-fab-button>
         <ion-fab-list side="top">
             <ion-fab-button color="vimeo" (click)="openSocial('Vimeo', fab)">
